@@ -3,7 +3,7 @@
 
     "project": {
         "name": "apiref",
-        "version": "0.01.",
+        "version": "0.0.1",
         "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
         "git": "https://github.com/shotastage/internal-ref.git",
         "license": "MIT",
