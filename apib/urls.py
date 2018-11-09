@@ -1,6 +1,6 @@
 from django.urls import path
-from apib.views import YOUR_VIEW_CLASSES
+from apib.views import APIRef
 
-urlpatterns = [
-    # path('url_letter/', YOUR_VIEW_CLASS.as_view(), name='starts'),
-]
+urlpatterns = (
+    path('', APIRef.as_view()),
+)
