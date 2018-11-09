@@ -1,3 +1,5 @@
 from django.contrib import admin
+from apib.models import APIB
 
-# Register your models here.
+
+admin.register(APIB)
