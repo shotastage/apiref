@@ -10,7 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
+import os, sys
+from apiref.db_secret import database_setting
+
+
+try:
+    RUNNING_MODE = os.environ["APIREF_RUNNING_MODE"]
+except:
+    RUNNING_MODE = "devel"
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +32,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^qae)-)isd=9t+u!)y*23)(rhi+3((7v$mnglv488iw*3f!b)4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if RUNNING_MODE == "production":
 
-ALLOWED_HOSTS = []
+    DEBUG = False
+else:
+    DEBUG = True
+
+
+if RUNNING_MODE == "production":
+    ALLOWED_HOSTS = ["localhost"]
+else:
+    ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -75,12 +92,16 @@ WSGI_APPLICATION = 'apiref.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+if RUNNING_MODE == "production":
+    DATABASES = database_setting
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
 
 
 # Password validation
@@ -105,9 +126,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
