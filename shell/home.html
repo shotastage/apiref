@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css" media="screen">
+
+    <style>
+       iframe {
+            height: 100%;
+            border: none;
+            width: 100vw;
+            height: 85vh;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,12 +26,18 @@
 
     <br>
 
-    <div class="embed-responsive embed-responsive-4by3">
-    <iframe class="embed-responsive-item"  src="/apiref_render/">
-    </iframe>
-</div>
+    <div class="iframe_area">
+        <div class="iframe_elm">
+            <iframe id="api_view" class="embed-responsive-item" src="/apiref_render/"></iframe>
+        </div>
+    </div>
 
     {% include "scripts.html" %}
+    <script>
+        $(document).ready(function() {
+            $("#api_view", window.parent.document).height(document.body.scrollHeight);
+        });
+    </script>
 </body>
 
 </html>
