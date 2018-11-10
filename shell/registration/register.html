@@ -26,7 +26,7 @@
         <div class="card border-primary mb-3">
             <div class="card-header">Register</div>
             <div class="card-body">
-                <h1 class="card-title">Creating account for <strong>hornet.live.mf@gmail.com</strong></h1>
+                <h1 class="card-title">Creating account for <strong>{{ mail }}</strong></h1>
 
                 <form action="{{ app_path }}" method="post" role="form">{% csrf_token %}
                     <fieldset>
@@ -40,6 +40,9 @@
                             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
                         </div>
                         
+                        <!-- Hidden email -->
+                        <input type="hidden" name="email" value="{{ mail }}">
+
                         <button type="submit" class="btn btn-primary btn-lg">REGISTER</button>
                         <input name="next" type="hidden" value="{{ next }}"/>
                     </fieldset>

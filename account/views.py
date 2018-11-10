@@ -1,6 +1,9 @@
 import random, string
+from urllib.parse import quote
+
 from django.views.generic import View
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from account.models import InvitationCode
 
 
@@ -23,7 +26,10 @@ class CodeCheck(View):
             codes.save()
 
 
-        return redirect('basic_profile/')
+        res = redirect('basic_profile/')
+        res['location'] += '?' "email=" + quote(codes.email)
+
+        return res
 
 
 class RegisterView(View):
@@ -34,7 +40,31 @@ class RegisterView(View):
 
 
     def get(self, request):
-        return render(request, 'registration/register.html')
+
+        context = {
+            'mail': request.GET['email'],
+        }
+
+        return render(request, 'registration/register.html', context)
 
     def post(self, request):
-        pass
+        
+        username = request.POST["username"]
+        password = request.POST["password"]
+        email = request.POST["email"]
+
+
+        sess = InvitationCode.objects.filter(email=email).first()
+
+        if sess.is_activated:
+            new = User.objects.create_user(
+                username = username,
+                password = password,
+                email = email,
+            )
+            new.save()
+        else:
+            print("This email account is not activated!")
+
+
+        return redirect('/login/')
