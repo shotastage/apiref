@@ -14,8 +14,8 @@ class AccessTokenManager(models.Manager):
 
     def create_token(self, user):
         token = self.create(
-            token = secrets.token_hex(),
-            user = user,
+            token = secrets.token_urlsafe(32),
+            created_by = str(user),
         )
 
         return token

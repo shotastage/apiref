@@ -21,7 +21,7 @@
             <div class="card-header"><strong>Manage Access Token</strong></div>
             <div class="card-body">
                 <h1 class="card-title">Current access token is</h1>
-                <h1 style="text-align: center;"><strong>Ad2ud23bd29d32jidio2</strong></h1>
+                <h1 style="text-align: center;"><strong>{{ access_token }}</strong></h1>
                 <form action="{{ app_path }}" method="post" role="form">{% csrf_token %}
                     <fieldset>
                         
