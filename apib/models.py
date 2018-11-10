@@ -3,10 +3,22 @@ from datetime import datetime
 from django.db import models
 
 
+
+class APIBManager(models.Manager):
+
+    def submit_new(self, contents):
+        new = self.create(
+            content = contents
+        )
+
+        return new
+
 class APIB(models.Model):
-    division = models.DateTimeField()
+    division = models.DateTimeField(default=datetime.now)
     content = models.TextField()
-    is_disabled = models.BooleanField()
+    is_disabled = models.BooleanField(default=False)
+
+    objects = APIBManager()
 
 
 

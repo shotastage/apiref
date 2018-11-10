@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from apib.models import (
     APIB,
@@ -30,6 +31,31 @@ class APIRefFrame(View):
         res.write(content)
 
         return res
+
+
+
+class APISubmitView(View):
+
+    def post(self, request):
+        token = request.META["HTTP_APIREF_TOKEN"]
+        body = request.body.decode('utf-8')
+
+
+        if AccessToken.objects.all().last().token == token:
+            new = APIB.objects.submit_new(
+                contents = str(body)
+            )
+            new.save()
+
+
+            return HttpResponse("Successful created new api doc!", status=201)
+        else:
+            return HttpResponse("Access token is wrong!", status=403)
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(APISubmitView, self).dispatch(*args, **kwargs)
+
 
 
 class APITokenView(View):
