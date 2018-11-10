@@ -24,3 +24,10 @@ class APIRef(View):
 
     def post(self, request):
         pass
+
+
+class APITokenView(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+        return render(request, "create_accessing_token.html")

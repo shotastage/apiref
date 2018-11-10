@@ -11,26 +11,23 @@
 
 <body>
 
-    {% include "../navigation.html" %}
-
+    {% include "navigation.html" %}
 
     <br>
 
     <div class="container">
 
         <div class="card border-primary mb-3">
-            <div class="card-header">Generate a new invitation</div>
+            <div class="card-header"><strong>Manage Access Token</strong></div>
             <div class="card-body">
-                <h1 class="card-title">Enter email address to invite</h1>
-
+                <h1 class="card-title">Current access token is</h1>
+                <h1 style="text-align: center;"><strong>Ad2ud23bd29d32jidio2</strong></h1>
                 <form action="{{ app_path }}" method="post" role="form">{% csrf_token %}
                     <fieldset>
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter email">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Generate invitation code</button>
-                        <input name="next" type="hidden" value="{{ next }}"/>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg">Regenerate</button>
+                        <input type="hidden" name="action" value="regenerate">
+                        <input name="next" type="hidden" value="{{ next }}" />
                     </fieldset>
                 </form>
             </div>
@@ -40,4 +37,5 @@
 
     {% include "scripts.html" %}
 </body>
+
 </html>
