@@ -1,11 +1,54 @@
 import random, string
 from urllib.parse import quote
-
 from django.views.generic import View
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from account.models import InvitationCode
 
+
+
+class CodeGenerate(View):
+
+    @method_decorator(login_required)
+    def get(self, request):
+
+        res = None
+
+        try:
+            param = request.GET['email']
+        except:
+            param = None
+
+        if param is not None:
+
+            context = {
+                'mail': param,
+                'code': InvitationCode.objects.filter(email=param).last().code
+            }
+
+            print(InvitationCode.objects.filter(email=param).first())
+
+            res = render(request, 'registration/code_result.html', context)
+        else:
+            res = render(request, 'registration/code_gen.html')
+
+        return res
+
+
+    @method_decorator(login_required)
+    def post(self, request):
+        
+        email = request.POST["email"]
+    
+        InvitationCode.objects.create_code(email)
+
+
+        res = redirect("/admin/register_new/")
+        res['location'] += '?' "email=" + quote(email)
+
+        return res
 
 
 class CodeCheck(View):
@@ -32,12 +75,8 @@ class CodeCheck(View):
         return res
 
 
+
 class RegisterView(View):
-
-    def gen_invitation_code(self) -> str:
-        randlst = [random.choice(string.ascii_letters + string.digits) for i in range(6)]
-        return ''.join(randlst)
-
 
     def get(self, request):
 

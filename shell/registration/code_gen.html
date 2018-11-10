@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>APIRef Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css" media="screen">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">APIRef</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <br>
+
+    <div class="container">
+
+        <div class="card border-primary mb-3">
+            <div class="card-header">Create a new invitation</div>
+            <div class="card-body">
+                <h1 class="card-title">Enter email address to invite</h1>
+
+                <form action="{{ app_path }}" method="post" role="form">{% csrf_token %}
+                    <fieldset>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Generate invitation code</button>
+                        <input name="next" type="hidden" value="{{ next }}"/>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    {% include "scripts.html" %}
+</body>
+</html>
