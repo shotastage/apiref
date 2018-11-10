@@ -15,21 +15,10 @@ class APIRef(View):
     def get(self, request):
 
 
-        ##session = APIB.objects.latest()
+        session = APIB.objects.all().last()
     
         res = HttpResponse()
-        res.write("""
-        <!doctype html>
-        <html>
-        <head>
-        <meta charset="UTF-8">
-        <title>SSS</title>
-        </head>
-        <body>
-        <h1>HELLO!</h1>
-        </body>
-        </html>
-        """)
+        res.write(session.content)
 
         return res
 
