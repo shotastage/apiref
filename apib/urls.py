@@ -1,10 +1,12 @@
 from django.urls import path
 from apib.views import (
-    APIRef,
+    APIRefFrame,
+    APIHomeView,
     APITokenView
 )
 
 urlpatterns = (
-    path('', APIRef.as_view()),
+    path('', APIHomeView.as_view()),
+    path('apiref_render/', APIRefFrame.as_view()),
     path('token/', APITokenView.as_view()),
 )

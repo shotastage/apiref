@@ -1,4 +1,8 @@
-navbar = """
+stylesheet = '''
+<link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css" media="screen">
+'''
+
+navbar = '''
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">APIRef</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03"
@@ -20,4 +24,4 @@ navbar = """
         </ul>
     </div>
 </nav>
-"""
+'''

@@ -8,25 +8,28 @@ from apib.models import (
     APIB,
     AccessToken
 )
+from apib.htmlstring import stylesheet, navbar
 
 # Create your views here.
 
 
-class APIRef(View):
+class APIHomeView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+
+        return render(request, "home.html")
+
+class APIRefFrame(View):
 
     @method_decorator(login_required)
     def get(self, request):
 
-
-        session = APIB.objects.all().last()
+        content = APIB.objects.all().last().content
     
         res = HttpResponse()
-        res.write(session.content)
+        res.write(content)
 
         return res
-
-    def post(self, request):
-        pass
 
 
 class APITokenView(View):
