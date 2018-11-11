@@ -40,7 +40,7 @@ else:
 
 
 if RUNNING_MODE == "production":
-    ALLOWED_HOSTS = ["localhost"]
+    ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = ["*"]
 

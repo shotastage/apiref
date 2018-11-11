@@ -18,7 +18,11 @@ class APIHomeView(View):
     @method_decorator(login_required)
     def get(self, request):
 
-        return render(request, "home.html")
+        context = {
+            'page_title': "Home",
+        }
+
+        return render(request, "home.html", context)
 
 class APIRefFrame(View):
 
@@ -74,6 +78,7 @@ class APITokenView(View):
 
         context = {
             'access_token': token,
+            'page_title': "Access Token",
         }
 
         return render(request, "create_accessing_token.html", context)

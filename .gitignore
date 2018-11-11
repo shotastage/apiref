@@ -219,4 +219,3 @@ tmp/
 # Describe project specified ignore files or directories here.
 
 .vscode/
-db_secret.py
