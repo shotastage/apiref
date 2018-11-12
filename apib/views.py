@@ -29,6 +29,13 @@ class APIRefFrame(View):
     @method_decorator(login_required)
     def get(self, request):
 
+        if APIB.objects.all().last() is None:
+            context = {
+                'token': AccessToken.objects.all().last().token,
+            }
+
+            return render(request, "errors/nocontent.html", context)
+
         content = APIB.objects.all().last().content
     
         res = HttpResponse()
