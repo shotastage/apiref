@@ -147,3 +147,18 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
+
+
+# Email Settings
+if RUNNING_MODE == "production":
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = os.environ["SENDGRID_USER_NAME"]
+    EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+else:
+    EMAIL_HOST = 'smtp.host'
+    EMAIL_HOST_USER = 'username'
+    EMAIL_HOST_PASSWORD = 'password'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
