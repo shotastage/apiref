@@ -28,7 +28,6 @@ class CodeGenerate(View):
                 'code': InvitationCode.objects.filter(email=param).last().code
             }
 
-            print(InvitationCode.objects.filter(email=param).first())
 
             res = render(request, 'registration/code_result.html', context)
         else:
