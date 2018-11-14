@@ -19,8 +19,8 @@ class InvitationCodeManager(models.Manager):
 
 
 class InvitationCode(models.Model):
-    code = models.CharField(max_length = 10)
-    email = models.CharField(max_length = 255)
+    code = models.CharField(max_length = 10, unique=True)
+    email = models.CharField(max_length = 255, unique=True)
     is_activated = models.BooleanField(default=False)
 
     objects = InvitationCodeManager()
