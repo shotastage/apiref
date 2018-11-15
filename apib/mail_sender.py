@@ -13,18 +13,22 @@ def construct_mail(sub: str, msg: str, to: List[str]):
         fail_silently=False)
 
 def send_notification(request):
-    construct_mail(
-        'API references update notification',
-        '''
+
+    try:
+        construct_mail(
+                'API references update notification',
+                '''
 Your API document has been updated!
 See or reload {0}://{1}
 
 Thank you,
 
 APIRef - API Document Server for CI
-        '''.format(request.scheme, request.META.HTTP_HOST),
-        get_all_username()
-    )
+                '''.format(request.scheme, request.META.HTTP_HOST),
+                get_all_username()
+        )
+    except:
+        print("Sending notification has been failed.")
 
 
 def get_all_username():
