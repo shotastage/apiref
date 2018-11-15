@@ -154,7 +154,7 @@ if RUNNING_MODE == "production":
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.sendgrid.net'
     EMAIL_HOST_USER = os.environ["SENDGRID_USER_NAME"]
-    EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
+    EMAIL_HOST_PASSWORD = os.environ["SENDGRID_HOST_PASSWORD"]
     EMAIL_FROM_ADDRESS = os.environ["SENDGRID_FROM_ADDRESS"]
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
