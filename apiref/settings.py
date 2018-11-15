@@ -19,6 +19,11 @@ try:
 except:
     RUNNING_MODE = "devel"
 
+try:
+    DEBUG_LOG_MODE = os.environ["DEBUG_LOG_MODE"]
+except:
+    DEBUG_LOG_MODE = "FALSE"
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -33,9 +38,11 @@ SECRET_KEY = '^qae)-)isd=9t+u!)y*23)(rhi+3((7v$mnglv488iw*3f!b)4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if RUNNING_MODE == "production":
-
     DEBUG = False
 else:
+    DEBUG = True
+
+if DEBUG_LOG_MODE == "TRUE":
     DEBUG = True
 
 
