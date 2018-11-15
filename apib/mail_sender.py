@@ -4,6 +4,18 @@ from django.conf import settings
 from typing import List
 
 
+
+
+def get_all_username() -> List[str]:
+    emails = []
+    users = User.objects.all()
+
+    for user in users:
+        emails.append(user.email)
+
+    return emails
+
+
 def construct_mail(sub: str, msg: str, to: List[str]):
     send_mail(
         sub,
@@ -29,13 +41,3 @@ APIRef - API Document Server for CI
         )
     except:
         print("Sending notification has been failed.")
-
-
-def get_all_username():
-    emails = []
-    users = User.objects.all()
-
-    for user in users:
-        emails.append(user.email)
-
-    return emails
