@@ -7,19 +7,24 @@
 
 <body>
     {% include "navigation.html" %}
+    <div class="container">
 
-    <div class="iframe_area">
-        <div class="frame-container">
-            <iframe id="api_view" class="embed-responsive-item" src="/apiref_render/"></iframe>
-        </div>
+        <form action="{{ app_path }}" method="post" role="form">{% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">To: address</label>
+                <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">                
+            </div>
+            <div class="form-group">
+                <label class="col-form-label" for="inputDefault">Subject</label>
+                <input type="text" name="subject" class="form-control" placeholder="Enter subject" id="inputDefault">
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Email Text</label>
+                <textarea class="form-control" name="body" id="exampleTextarea" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">SEND</button>
+        </form>
     </div>
-
     {% include "scripts.html" %}
-    <script>
-        $(document).ready(function() {
-            $("#api_view", window.parent.document).height(document.body.scrollHeight);
-        });
-    </script>
 </body>
-
 </html>

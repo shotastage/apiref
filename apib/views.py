@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
@@ -10,7 +11,7 @@ from apib.models import (
     AccessToken
 )
 from apib.htmlstring import stylesheet, navbar
-from apib.mail_sender import send_notification
+from apib.mail_sender import send_notification, construct_mail
 
 # Create your views here.
 
@@ -103,3 +104,36 @@ class APITokenView(View):
             new.save()
 
         return redirect('/token/')
+
+
+
+
+class MailSenderView(View):
+
+    @method_decorator(staff_member_required)
+    def get(self, request):
+        context = {
+            'access_token': "token",
+            'page_title': "Access Token",
+        }
+
+        return render(request, "apib/email_sender.html", context)
+
+
+    @method_decorator(staff_member_required)
+    def post(self, request):
+
+        to = request.POST["email"]
+        sub = request.POST["subject"]
+        text = request.POST["body"]
+
+        try:
+            construct_mail(
+                sub,
+                text,
+                [to]
+            )
+        except:
+            pass
+
+        return redirect('/')
