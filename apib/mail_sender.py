@@ -28,4 +28,10 @@ APIRef - API Document Server for CI
 
 
 def get_all_username():
-    return User.objects.all().email
+    emails = []
+    users = User.objects.all()
+
+    for user in users:
+        emails.append(user.email)
+
+    return emails

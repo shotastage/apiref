@@ -12,5 +12,5 @@ urlpatterns = (
     path('logout/', LogoutView.as_view()),
     path('register/', CodeCheck.as_view()),
     path('register/basic_profile/', RegisterView.as_view()),
-    path('admin/register_new/', CodeGenerate.as_view()),
+    path('register_new/', CodeGenerate.as_view()),
 )

@@ -19,7 +19,7 @@ navbar = '''
                 <a class="nav-link" href="/token/">Token</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/register_new/">New User</a>
+                <a class="nav-link" href="/register_new/">New User</a>
             </li>
         </ul>
     </div>
