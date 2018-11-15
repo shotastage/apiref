@@ -8,7 +8,7 @@ def construct_mail(sub: str, msg: str, to: List[str]):
     send_mail(
         sub,
         msg,
-        "APIRef <" + settings.EMAIL_FROM_ADDRESS + ">",
+        "APIRef <{0}>".format(settings.EMAIL_FROM_ADDRESS),
         to,
         fail_silently=False)
 
