@@ -8,15 +8,21 @@ def construct_mail(sub: str, msg: str, to: List[str]):
     send_mail(
         sub,
         msg,
-        settings.EMAIL_FROM_ADDRESS,
+        "APIRef <" + settings.EMAIL_FROM_ADDRESS + ">",
         to,
         fail_silently=False)
 
-def send_notification():
+def send_notification(request):
     construct_mail(
-        'API references',
+        'API references update notification',
         '''
-        ''',
+Your API document has been updated!
+See or reload {0}://{1}
+
+Thank you,
+
+APIRef - API Document Server for CI
+        '''.format(request.scheme, request.META.HTTP_HOST),
         get_all_username()
     )
 

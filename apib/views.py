@@ -62,7 +62,7 @@ class APISubmitView(View):
 
 
             return HttpResponse("Successful created new api doc!", status=201)
-            send_notification()
+            send_notification(request)
         else:
             return HttpResponse("Access token is wrong!", status=403)
 
