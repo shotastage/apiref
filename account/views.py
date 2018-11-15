@@ -44,7 +44,7 @@ class CodeGenerate(View):
         InvitationCode.objects.create_code(email)
 
 
-        res = redirect("/admin/register_new/")
+        res = redirect("/register_new/")
         res['location'] += '?' "email=" + quote(email)
 
         return res
