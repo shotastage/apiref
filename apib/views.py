@@ -10,6 +10,7 @@ from apib.models import (
     AccessToken
 )
 from apib.htmlstring import stylesheet, navbar
+from apib.mail_sender import send_notification
 
 # Create your views here.
 
@@ -60,6 +61,7 @@ class APISubmitView(View):
 
 
             return HttpResponse("Successful created new api doc!", status=201)
+            send_notification()
         else:
             return HttpResponse("Access token is wrong!", status=403)
 
