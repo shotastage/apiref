@@ -1,11 +1,14 @@
 # apiref
 
-Internal API ref
+![Screenshot](./docs/screenshot.png)
+
+API document server for team internal use.
 
 # Submit compiled Blueprint
 
-APIRef provides simple API to submit & update blueprint.
-You can post blueprint via curl. Thus, it is easy to post it from ci environment.
+APIRef provides simple API to submit & update compiled API Blueprint. You can use another API doc instead of API Blueprint if it can compile as HTML.
+
+You can post compiled API Blueprint using curl command. Thus, it is easy to post it from ci environment.
 
 ```
 $ curl -d "<html><h1>Hello!</h1></html>" \
