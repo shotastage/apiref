@@ -1,0 +1,9 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend application for APIRef",
+  "main": "index.js",
+  "author": "Shota Shimazu",
+  "license": "UNLICENSED",
+  "private": true
+}
