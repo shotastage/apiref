@@ -55,6 +55,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'setup.apps.SetupConfig',
     'account.apps.AccountConfig',
     'apib.apps.ApibConfig',
     'django.contrib.admin',
@@ -63,6 +64,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apiblueprint_view',
 ]
 
 MIDDLEWARE = [
