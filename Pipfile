@@ -8,7 +8,6 @@ django = "*"
 "psycopg2-binary" = "*"
 gunicorn = "*"
 whitenoise = "*"
-django-jet = "*"
 
 [dev-packages]
 django-mirage = "*"
