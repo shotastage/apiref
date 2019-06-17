@@ -38,9 +38,9 @@ class CodeGenerate(View):
 
     @method_decorator(login_required)
     def post(self, request):
-        
+
         email = request.POST["email"]
-    
+
         InvitationCode.objects.create_code(email)
 
 
@@ -56,7 +56,7 @@ class CodeCheck(View):
         return render(request, 'registration/code_check.html')
 
     def post(self, request):
-        
+
         data = request.POST["username"]
 
         codes = InvitationCode.objects.filter(code=data).first()
@@ -86,7 +86,7 @@ class RegisterView(View):
         return render(request, 'registration/register.html', context)
 
     def post(self, request):
-        
+
         username = request.POST["username"]
         password = request.POST["password"]
         email = request.POST["email"]
