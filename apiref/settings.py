@@ -165,7 +165,7 @@ LOGIN_REDIRECT_URL = '/'
 if RUNNING_MODE == "production":
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.sendgrid.net'
-    EMAIL_HOST_USER = os.environ["SENDGRID_USER_NAME"]
+    EMAIL_HOST_USER = os.environ["SENDGRID_USERNAME"]
     EMAIL_HOST_PASSWORD = os.environ["SENDGRID_PASSWORD"]
     EMAIL_FROM_ADDRESS = os.environ["SENDGRID_USERNAME"]
     EMAIL_PORT = 587
