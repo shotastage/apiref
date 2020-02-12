@@ -22,4 +22,5 @@ urlpatterns = (
     # path('logout/', views.Logout.as_view(), name='logout'),
     path('', include('account.urls')),
     path('', include('apib.urls')),
+    path('', include('setup.urls')),
 )

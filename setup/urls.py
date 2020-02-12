@@ -1,6 +1,6 @@
 from django.urls import path
-from setup.views import YOUR_VIEW_CLASSES
+from setup.views import InitialSetupView
 
 urlpatterns = [
-    # path('url_letter/', YOUR_VIEW_CLASS.as_view(), name='starts'),
+    path('initial_user_setup/', InitialSetupView.as_view(), name='starts'),
 ]

@@ -1,32 +1,23 @@
-from urllib.parse import quote
 from django.views.generic import View
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
+
+
 from django.contrib.auth.models import User
-from account.models import InvitationCode
+from django.contrib.auth import get_user_model
 
 
-
-class CodeGenerate(View):
+class InitialSetupView(View):
 
     def get(self, request):
-        return render(request, 'registration/code_result.html')
+        return render(request, 'initial.html')
 
 
-    @method_decorator(login_required)
     def post(self, request):
-
-        user = request.POST["user"]
+        username = request.POST["username"]
+        password = request.POST["password"]
         email = request.POST["email"]
-        passwd = request.POST["passwd"]
-        passwd_confirm = request.POST["passwd_confirm"]
 
-
-        if passwd == passwd_confirm:
-            pass
-
-        res = redirect("/register_new/")
-        res['location'] += '?' "email=" + quote(email)
-
-        return res
+        User = get_user_model()
+        User.objects.create_superuser(username, email, password)
+      
+        return redirect('/login/')

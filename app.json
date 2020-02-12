@@ -3,7 +3,7 @@
     "description": "Internal API reference system.",
     "repository": "https://github.com/shotastage/apiref",
     "keywords": ["python", "django", "static"],
-    "success_url": "/",
+    "success_url": "/initial_user_setup/",
     "image": "heroku/python",
     "buildpacks": [
         {
