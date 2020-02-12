@@ -36,11 +36,6 @@
             "description": "Disables running ``collectstatic`` during the build.",
             "value": "1"
         },
-        "SENDGRID_FROM_ADDRESS": {
-            "description": "Send Grid from address",
-            "value": "example@example.com",
-            "required": true
-        },
         "DEBUG_LOG_MODE": {
             "description": "Show debug error log.",
             "value": "FALSE",
