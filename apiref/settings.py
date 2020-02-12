@@ -25,9 +25,9 @@ except:
     DEBUG_LOG_MODE = "FALSE"
 
 try:
-    APPLICATION_NAME = os.environ["SITE_NAME"]
+    SITE_NAME = os.environ["SITE_NAME"]
 except:
-    APPLICATION_NAME = "API Ref"
+    SITE_NAME = "API Ref"
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
