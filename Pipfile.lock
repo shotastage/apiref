@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b6c0abcdfa0e79f75f2d23722a54e109b15289699d7e71fa7b9a4b34c7a8e177"
+            "sha256": "3fd24cada6b56aaea125719b4cb2cdc2690a2ab8564aa7073519b7ab7cdb3869"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -48,6 +48,14 @@
                 "sha256:f2b0fa0c01d8a0c7483afd9f31d7ecf2d71760ca24499c8697aeb5ca37dc090c"
             ],
             "version": "==1.14.0"
+        },
+        "dj-database-url": {
+            "hashes": [
+                "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163",
+                "sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"
+            ],
+            "index": "pypi",
+            "version": "==0.5.0"
         },
         "django": {
             "hashes": [
@@ -131,6 +139,12 @@
             ],
             "version": "==2.19"
         },
+        "python-http-client": {
+            "hashes": [
+                "sha256:025ba6c5c3d423682957612799af47f6de845ff8559e71325442576d16dc9ad9"
+            ],
+            "version": "==3.2.4"
+        },
         "pytz": {
             "hashes": [
                 "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d",
@@ -144,6 +158,14 @@
                 "sha256:4a55ad0b8ee1e1783471afa37d06d235418dd77505362985418af83b3223e7d3"
             ],
             "version": "==0.3.0"
+        },
+        "sendgrid": {
+            "hashes": [
+                "sha256:12ea8203c48c47b03dbe33e219408ca32c9259526d05b783418482d40f17943c",
+                "sha256:5ad98598c13b8cf5545d20f6fb6ecf967a08b48e3e175affabd82cfc71522d01"
+            ],
+            "index": "pypi",
+            "version": "==6.1.1"
         },
         "sqlparse": {
             "hashes": [

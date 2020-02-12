@@ -16,6 +16,8 @@ psycopg2-binary = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-apiblueprint-view = "*"
+dj-database-url = "*"
+sendgrid = "*"
 
 [requires]
 python_version = "3.8"

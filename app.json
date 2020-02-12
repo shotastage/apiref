@@ -33,29 +33,14 @@
             "description": "Disables running ``collectstatic`` during the build.",
             "value": "1"
         },
-        "APIREF_DB_NAME": {
-            "description": "PostgreSQL Database Name",
-            "value": ""
-        },
-        "APIREF_DB_USER": {
-            "description": "PostgreSQL Database User",
-            "value": ""
-        },
-        "APIREF_DB_USER": {
-            "description": "PostgreSQL Database User",
-            "value": ""
-        },
-        "APIREF_DB_PASS": {
-            "description": "PostgreSQL Database Password",
-            "value": ""
-        },
-        "APIREF_DB_HOST": {
-            "description": "PostgreSQL Database Host",
-            "value": ""
+        "SENDGRID_FROM_ADDRESS": {
+            "description": "Send Grid from address",
+            "value": "example@example.com",
+            "required": true
         },
         "DEBUG_LOG_MODE": {
             "description": "Show debug error log.",
-            "value": "TRUE",
+            "value": "FALSE",
             "required": true
         }
     }
