@@ -4,6 +4,8 @@
 
 API document server for team internal use.
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 # Submit compiled Blueprint
 
 APIRef provides simple API to submit & update compiled API Blueprint. You can use another API doc instead of API Blueprint if it can compile as HTML.

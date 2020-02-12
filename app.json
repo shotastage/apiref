@@ -2,6 +2,61 @@
     "name": "APIRef",
     "description": "Internal API reference system.",
     "repository": "https://github.com/shotastage/apiref",
-    "logo": "https://github.com/shotastage/apiref",
-    "keywords": ["python", "django", "static"]
+    "keywords": ["python", "django", "static"],
+    "success_url": "/",
+    "image": "heroku/python",
+    "buildpacks": [
+        {
+          "url": "heroku/python"
+        }
+    ],
+    "addons": ["heroku-postgresql:hobby-dev"],
+    "scripts": {
+        "postdeploy": "python manage.py migrate"
+    },
+    "env": {
+        "APPLICATION_URL": {
+            "description": "Application URL is web system host name.",
+            "value": "{YOUR APP NAME}.herokuapp.com",
+            "required": true
+        },
+        "SECRET_KEY": {
+          "description": "A secret key for verifying the integrity of signed cookies.",
+          "generator": "secret"
+        },
+        "APIREF_RUNNING_MODE": {
+            "description": "Settings for defining a running mode.",
+            "value": "production",
+            "required": true
+        },
+        "DISABLE_COLLECTSTATIC": {
+            "description": "Disables running ``collectstatic`` during the build.",
+            "value": "1"
+        },
+        "APIREF_DB_NAME": {
+            "description": "PostgreSQL Database Name",
+            "value": ""
+        },
+        "APIREF_DB_USER": {
+            "description": "PostgreSQL Database User",
+            "value": ""
+        },
+        "APIREF_DB_USER": {
+            "description": "PostgreSQL Database User",
+            "value": ""
+        },
+        "APIREF_DB_PASS": {
+            "description": "PostgreSQL Database Password",
+            "value": ""
+        },
+        "APIREF_DB_HOST": {
+            "description": "PostgreSQL Database Host",
+            "value": ""
+        },
+        "DEBUG_LOG_MODE": {
+            "description": "Show debug error log.",
+            "value": "TRUE",
+            "required": true
+        }
+    }
 }
