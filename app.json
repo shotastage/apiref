@@ -18,6 +18,11 @@
         "postdeploy": "python manage.py migrate"
     },
     "env": {
+        "SITE_NAME": {
+            "description": "Display site name",
+            "value": "API Ref",
+            "required": true
+        },
         "APPLICATION_URL": {
             "description": "Application URL is web system host name.",
             "value": "{YOUR APP NAME}.herokuapp.com",

@@ -24,6 +24,10 @@ try:
 except:
     DEBUG_LOG_MODE = "FALSE"
 
+try:
+    APPLICATION_NAME = os.environ["SITE_NAME"]
+except:
+    APPLICATION_NAME = "API Ref"
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -94,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apiref.context_processors.site_common_text'
             ],
         },
     },
