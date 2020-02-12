@@ -10,7 +10,10 @@
           "url": "heroku/python"
         }
     ],
-    "addons": ["heroku-postgresql:hobby-dev"],
+    "addons": [
+        "heroku-postgresql:hobby-dev",
+        "sendgrid:starter"
+    ],
     "scripts": {
         "postdeploy": "python manage.py migrate"
     },
