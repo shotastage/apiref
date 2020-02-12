@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>APIRef Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ SITE_NAME }} Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" media="screen">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/litera/bootstrap.min.css"
+      media="screen"
+    />
+  </head>
 
-<body>
-
+  <body>
     {% include "../navigation_external.html" %}
 
     <div class="container">
+      <div class="card border-primary mb-3">
+        <div class="card-header">Invitation Code</div>
+        <div class="card-body">
+          <h1 class="card-title">Enter invitation code</h1>
+          <p class="text-primary">{{ error_msg }}</p>
 
-        <div class="card border-primary mb-3">
-            <div class="card-header">Invitation Code</div>
-            <div class="card-body">
-                <h1 class="card-title">Enter invitation code</h1>
-
-                <form action="{{ app_path }}" method="post" role="form">{% csrf_token %}
-                    <fieldset>
-                        <div class="form-group">
-                            <input type="text" name="username" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter code">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Proceed</button>
-                        <input name="next" type="hidden" value="{{ next }}"/>
-                    </fieldset>
-                </form>
-            </div>
+    
+          <form action="{{ app_path }}" method="post" role="form">
+            {% csrf_token %}
+            <fieldset>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="verification_code"
+                  class="form-control form-control-lg"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter code"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg">
+                Continue
+              </button>
+              <input name="next" type="hidden" value="{{ next }}" />
+            </fieldset>
+          </form>
         </div>
+      </div>
     </div>
 
-
     {% include "scripts.html" %}
-</body>
+  </body>
 </html>

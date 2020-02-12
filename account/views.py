@@ -57,12 +57,16 @@ class CodeCheck(View):
 
     def post(self, request):
 
-        data = request.POST["username"]
+        data = request.POST["verification_code"]
 
         codes = InvitationCode.objects.filter(code=data).first()
 
         if codes is None:
-            print("Your invitation code is wrong!")
+            context = {
+                'error_msg': "Verification code is wrong!",
+            }
+
+            return render(request, 'registration/code_check.html', context)
         else:
             codes.is_activated = True
             codes.save()
