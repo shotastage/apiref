@@ -1,14 +1,7 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[dev-packages]
-mirage-django-lts = "*"
-pylint = "*"
-pep8 = "*"
-mypy = "*"
-pylint-django = "*"
+name = "pypi"
 
 [packages]
 django = "*"
@@ -19,5 +12,12 @@ django-apiblueprint-view = "*"
 dj-database-url = "*"
 sendgrid = "*"
 
+[dev-packages]
+mirage-django-lts = "*"
+pylint = "*"
+pep8 = "*"
+mypy = "*"
+pylint-django = "*"
+
 [requires]
-python_version = "3.8"
+python_version = "3.9"
